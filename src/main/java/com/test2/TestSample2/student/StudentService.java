@@ -1,11 +1,8 @@
 package com.test2.TestSample2.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,5 +27,14 @@ public class StudentService {
             throw new IllegalStateException("Email taken");
         }
         studentRepository.save(student);
+    }
+
+    public void deleteStudent(Long studentId) {
+        boolean exists = studentRepository.existsById(studentId);
+        if(!exists){
+            throw new IllegalStateException("" +
+                    "student with id " + studentId + " does not exists");
+        }
+        studentRepository.deleteById(studentId);
     }
 }
