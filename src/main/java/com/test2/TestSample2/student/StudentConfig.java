@@ -9,27 +9,28 @@ import java.time.Month;
 import java.util.List;
 
 @Configuration
-public class StudentConfig {
+public class  StudentConfig {
 
 
     @Bean
     CommandLineRunner commandLineRunner(StudentRepository repository) {
         return args -> {
-            Student mariam = new Student(
-                    "Mariam",
-                    "mariam.jamal@gmail.com",
-                    LocalDate.of(2000, Month.JANUARY, 5)
-
+            Student niels = new Student(
+                    "Niels",
+                    "nielsgroeneveld@gmail.com",
+                    LocalDate.of(1993, Month.MARCH, 3),
+                    "Male"
             );
 
             Student alex= new Student(
                     "Alex",
                     "Alex@gmail.com",
-                    LocalDate.of(2004, Month.JANUARY, 5)
+                    LocalDate.of(2004, Month.JANUARY, 5),
+                    "Male"
             );
 
             repository.saveAll(
-                    List.of(mariam, alex)
+                    List.of(niels, alex)
             );
         };
     }

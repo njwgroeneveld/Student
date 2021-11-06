@@ -5,8 +5,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(maxAge = 3600)   //hierdoor kan je de beveiliging vanuit frontend goedkeuren
 @RestController
-@RequestMapping(path = "api/v1/student")
+@RequestMapping
 public class StudentController {
 
 
@@ -17,12 +18,13 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping
+    @GetMapping(path = "api/v1/student")
     public List<Student> getStudents(){
         return studentService.getStudents();
     }
 
-    @PostMapping
+
+    @PostMapping(path = "api/v1/student")
     public void registerNewStudent(@RequestBody Student student){
         studentService.addNewStudent(student);
     }

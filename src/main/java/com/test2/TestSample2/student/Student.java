@@ -23,21 +23,24 @@ public class Student {
     private LocalDate dob;
     @Transient
     private Integer age;
+    private String gender;
 
     public Student() {
     }
 
-    public Student(Long id, String name, String email, LocalDate dob) {
+    public Student(Long id, String name, String email, LocalDate dob, String gender) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.dob = dob;
+        this.gender = gender;
     }
 
-    public Student(String name, String email, LocalDate dob) {
+    public Student(String name, String email, LocalDate dob, String gender) {
         this.name = name;
         this.email = email;
         this.dob = dob;
+        this.gender = gender;
     }
 
     public Long getId() {
@@ -76,6 +79,14 @@ public class Student {
         return Period.between(this.dob, LocalDate.now()).getYears();
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public void setAge(Integer age) {
         this.age = age;
     }
@@ -88,6 +99,7 @@ public class Student {
                 ", email='" + email + '\'' +
                 ", dob=" + dob +
                 ", age=" + age +
+                ", gender=" + gender +
                 '}';
     }
 }
