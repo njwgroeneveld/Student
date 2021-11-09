@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -30,7 +31,7 @@ public class  StudentConfig {
             );
 
             repository.saveAll(
-                    List.of(niels, alex)
+                    Arrays.asList(niels, alex)
             );
         };
     }
